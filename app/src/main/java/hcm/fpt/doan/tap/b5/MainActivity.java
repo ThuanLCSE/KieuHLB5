@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -19,20 +20,21 @@ public class MainActivity extends Activity {
         LinearLayout linear = new LinearLayout(this);
         linear.setOrientation(LinearLayout.VERTICAL);
         TextView txt = new TextView(this);
-        txt.setId(R.string.txt_id);
+        txt.setId(R.id.txt_id);
         txt.setText("Dynamic ahi hi");
 
         Button btn = new Button(this);
         btn.setLayoutParams(params);
         txt.setLayoutParams(params);
-        btn.setText("Dynamic buttn");
+        btn.setText("Dynamic button");
         linear.addView(txt);
         linear.addView(btn);
         this.addContentView(linear,params);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView txt = (TextView) findViewById();
+                TextView txt = (TextView) findViewById(R.id.txt_id);
+                Toast.makeText(getApplicationContext(),txt.getText(),Toast.LENGTH_SHORT).show();
             }
         });
     }
